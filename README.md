@@ -12,10 +12,10 @@ We expect this test to take you about 6 - 10 hours. Given that most people are b
 #### As soon as you begin:
 * [ ] Fork this repository into a public repository on your github/etc account
 
-#### While completing this exercises, please:
+#### While working on this, please:
 * [ ] Commit early and often. I'll likely be following along with your progress.
 
-#### Upon completing this exercise, please post to us:
+#### Upon completing this, please post to us:
 * [ ] A link to your git repository such that we may view your code.
 * [ ] A link to somewhere where we may interact with a demo of your finished product
 
