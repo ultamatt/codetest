@@ -16,7 +16,6 @@ module.exports = {
     Card.find({ id: { $gte: id, $lte: upperBound } })
 
     // if a card has been deleted from the database - make sure getNextCards still returns 10 cards
-
       .then(cards => {
         if (cards.length < 10) {
           firstGet = cards;
@@ -32,8 +31,6 @@ module.exports = {
   },
   // posts a new card/document to the database
   postNewCard: (req, res) => {
-    console.log('IN postNewCard');
-
     const { artistName, picUrl, fact } = req.body;
 
     Card.create({
@@ -44,6 +41,11 @@ module.exports = {
   },
   // deletes a card/document from the database
   deleteCard: (req, res) => {
-    console.log('IN deleteCard');
+
+    const { id } = req.query;
+
+    Card.deleteOne({ id })
+      .then(() => res.status(202).send('Success deleting artist'))
+      .catch(err => console.log('Error deleting card', err));
   },
 };
