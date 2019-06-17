@@ -1,20 +1,32 @@
 const Card = require('../database/models');
 
-console.log('THIS IS THE CARD----------', Card);
-
 module.exports = {
 
   // controllers for user interactions
 
   // gets next 10 cards/documents from the database
   getNextCards: (req, res) => {
-    console.log('IN getNextCards');
 
     const { id } = req.query;
+    const upperBound = parseInt(id) + 9;
+    let firstGet;
 
-    Card.find({ id: { $gte: 1, $lte: 10 } })
-      .then(cards => res.status(200).send(cards))
-      .catch(err => res.status(404).send('Error getting cards', err));
+    Card.find({ id: { $gte: id, $lte: upperBound } })
+
+    // if a card has been deleted from the database - make sure getNextCards still returns 10 cards
+
+      .then(cards => {
+        if (cards.length < 10) {
+          firstGet = cards;
+          const missingCards = 10 - cards.length;       
+          const lastId = cards[cards.length - 1].id + 1;
+          Card.find({ id: { $gte: lastId, $lt: lastId + missingCards } })
+            .then(newCards => res.status(200).send(firstGet.concat(newCards)));
+        } else {
+          res.status(200).send(cards);
+        }
+      })
+      .catch(err => console.log('Error getting cards', err));
   },
   // posts a new card/document to the database
   postNewCard: (req, res) => {
