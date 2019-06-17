@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { artistList } = require('../artistList.js');
 
 mongoose.set('useCreateIndex', true);
 
@@ -14,5 +15,22 @@ const cardSchema = new mongoose.Schema({
 });
 
 const Card = new mongoose.model('Card', cardSchema);
+
+const renderDBArtistObjects = (arr) => {
+  let counter = 1;
+  return arr.map(artist => {
+    return {
+      id: counter++,
+      name: artist.name,
+      picUrl: artist.images[1].url,
+      fact: `${artist.name} is a ${artist.genres[0]} artist with ${artist.followers.total} followers and a popularity rating of ${artist.popularity} on Spotify.`
+    }
+  });
+};
+
+const databaseArtists = renderDBArtistObjects(artistList.artists);
+
+console.log(databaseArtists);
+
 
 module.exports = Card;

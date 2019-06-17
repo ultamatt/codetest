@@ -1,17 +1,6 @@
 const { Card } = require('../database/model');
-const axios = require('axios');
 
 module.exports = {
-  // controllers for seeding the database
-
-  // posts to the Spotify API to receive an authorization token
-  getAPIToken: (req, res) => {
-    console.log('IN getAPIToken');
-  },
-  // requests 50 artist objects from Spotify's API and seeds the database
-  getInitialCards: (req, res) => {
-    console.log('IN getInitialCards');
-  },
 
   // controllers for user interactions
 
@@ -28,3 +17,4 @@ module.exports = {
     console.log('IN deleteCard');
   },
 };
+
