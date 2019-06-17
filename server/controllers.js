@@ -1,4 +1,4 @@
-// const { Cards } = require('../database/model');
+const { Card } = require('../database/model');
 const axios = require('axios');
 
 module.exports = {
