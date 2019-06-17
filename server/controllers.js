@@ -1,4 +1,6 @@
-const { Card } = require('../database/model');
+const Card = require('../database/models');
+
+console.log('THIS IS THE CARD----------', Card);
 
 module.exports = {
 
@@ -7,6 +9,12 @@ module.exports = {
   // gets next 10 cards/documents from the database
   getNextCards: (req, res) => {
     console.log('IN getNextCards');
+
+    const { id } = req.query;
+
+    Card.find({ id: { $gte: 1, $lte: 10 } })
+      .then(cards => res.status(200).send(cards))
+      .catch(err => res.status(404).send('Error getting cards', err));
   },
   // posts a new card/document to the database
   postNewCard: (req, res) => {
@@ -17,4 +25,3 @@ module.exports = {
     console.log('IN deleteCard');
   },
 };
-
