@@ -1,5 +1,7 @@
 const Card = require('../database/models');
 
+let cardCount = 50;
+
 module.exports = {
 
   // controllers for user interactions
@@ -31,6 +33,14 @@ module.exports = {
   // posts a new card/document to the database
   postNewCard: (req, res) => {
     console.log('IN postNewCard');
+
+    const { artistName, picUrl, fact } = req.body;
+
+    Card.create({
+      id: cardCount, artistName, picUrl, fact
+    })
+      .then(() => res.status(201).send('Success creating new card'))
+      .catch(err => console.log('Error creating new card', err));
   },
   // deletes a card/document from the database
   deleteCard: (req, res) => {

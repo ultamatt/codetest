@@ -18,7 +18,7 @@ const renderDBArtistObjects = (arr) => {
   return arr.map(artist => {
     return {
       id: counter += 1,
-      name: artist.name,
+      artistName: artist.name,
       picUrl: artist.images[1].url,
       fact: `${artist.name} is a ${artist.genres[0]} artist with ${artist.followers.total} followers and a popularity rating of ${artist.popularity} on Spotify.`
     };
@@ -27,8 +27,8 @@ const renderDBArtistObjects = (arr) => {
 
 const databaseArtists = renderDBArtistObjects(artistList.artists);
 
-// Card.insertMany(databaseArtists, function(error, docs) {});
-
 const Card = new mongoose.model('Card', cardSchema);
+
+Card.insertMany(databaseArtists, function(error, docs) {});
 
 module.exports = Card;
