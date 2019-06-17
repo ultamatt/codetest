@@ -30,6 +30,6 @@ const renderDBArtistObjects = (arr) => {
 
 const databaseArtists = renderDBArtistObjects(artistList.artists);
 
-Card.insertMany(databaseArtists, function(error, docs) {});
+// Card.insertMany(databaseArtists, function(error, docs) {});
 
 module.exports = Card;

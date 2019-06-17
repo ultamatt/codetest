@@ -27,6 +27,7 @@ module.exports = {
     "react/jsx-filename-extension": 0,
     "react/jsx-curly-spacing": [ 2, "always" ],
     "react/jsx-indent": [ 2, 4 ]
-  }
+  },
+  "root": true
 
 }
