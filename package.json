@@ -4,7 +4,8 @@
   "description": "An application utilizing Spotify's API that allows the user to discover their favorite musical artist.  The user can browse through singer cards, delete a card, or create their own that is added to the deck.",
   "main": ".eslintrc.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server/index.js"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,6 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "mongoose": "^5.6.0",
+    "mongoose": "^5.6.0"
   }
 }
