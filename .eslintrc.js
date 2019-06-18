@@ -14,7 +14,6 @@ module.exports = {
     // spacing
     "template-curly-spacing": [ 2, "always" ],
     "object-curly-spacing": [ 2, "always" ],
-    "computed-property-spacing": [ 2, "always" ],
     "no-multiple-empty-lines": [ 2, { "max": 1, "maxEOF": 0, "maxBOF": 0 } ],
 
     // strings
@@ -27,6 +26,7 @@ module.exports = {
     "react/jsx-filename-extension": 0,
     "react/jsx-curly-spacing": [ 2, "always" ],
     "react/jsx-indent": [ 2, 4 ]
-  }
+  },
+  "root": true
 
 }
