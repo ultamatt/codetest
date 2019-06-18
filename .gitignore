@@ -1,3 +1,6 @@
+# Authentication keys for Spotify API
+config.js
+
 # Logs
 logs
 *.log
