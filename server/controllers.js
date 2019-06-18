@@ -8,7 +8,6 @@ module.exports = {
 
   // gets next 10 cards/documents from the database
   getNextCards: (req, res) => {
-
     const { id } = req.query;
     const upperBound = parseInt(id) + 9;
     let firstGet;
@@ -41,7 +40,6 @@ module.exports = {
   },
   // deletes a card/document from the database
   deleteCard: (req, res) => {
-
     const { id } = req.query;
 
     Card.deleteOne({ id })
